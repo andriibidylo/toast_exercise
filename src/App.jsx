@@ -3,16 +3,23 @@ import Container from "@mui/material/Container";
 
 import Header from "./components/Header";
 import { Home } from "./pages/Home";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-const queryClient = new QueryClient();
+import { QueryClientProvider } from "@tanstack/react-query";
+import { setupQueryClient } from "./query/setupQueryClient";
+import { useShowError } from "./components/hooks/useShowError";
+import { useMemo } from "react";
 
 const App = () => {
+
+  const { showError, ErrorComponent } = useShowError();
+
+  const queryClient = useMemo(() => setupQueryClient(showError), [showError]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
       <Container>
         <Home />
+        {ErrorComponent}
       </Container>
     </QueryClientProvider>
   );

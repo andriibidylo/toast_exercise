@@ -9,6 +9,7 @@ export const Toast = ({
   open,
   onLike,
   onClose,
+  isError = false,
   isDisable = false,
 }) => {
   return (
@@ -17,15 +18,16 @@ export const Toast = ({
         <SnackbarContent
           action={
             <>
-              <Button
-                color="inherit"
-                size="small"
-                disabled={isDisable}
-                onClick={() => onLike()}
-              >
-                Like
-              </Button>
-
+              {!isError && (
+                <Button
+                  color="inherit"
+                  size="small"
+                  disabled={isDisable}
+                  onClick={() => onLike()}
+                >
+                  Like
+                </Button>
+              )}
               <IconButton
                 size="small"
                 aria-label="close"
