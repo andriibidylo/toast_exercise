@@ -1,0 +1,32 @@
+import {  Typography } from "@mui/material";
+import { useFetchLikedSubmissions } from "../query/useFetchLikedSubmissions";
+import { LikedSubmission } from "./LikedSubmission";
+import { useMemo } from "react";
+
+export const LikedSubmissionList = () => {
+  const {
+    data: likedSubmissions,
+  } = useFetchLikedSubmissions();
+
+  const sortedSubmissions = useMemo(() => {
+    if (likedSubmissions) {
+      return [...likedSubmissions].reverse();
+    }
+  }, [likedSubmissions]);
+
+  return (
+    <>
+      <Typography variant="h4">Liked Form Submissions</Typography>
+          {likedSubmissions &&
+            sortedSubmissions.map((submission) => (
+                <LikedSubmission
+                  key={submission.id}
+                  submission={submission.data}
+                />
+            ))}
+          
+
+ 
+    </>
+  );
+};
