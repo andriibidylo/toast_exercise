@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { FormSubmission } from '../components/FormSubmission';
 
 export const Home = () => {
   return (
@@ -10,6 +11,7 @@ export const Home = () => {
       <Typography variant="body1" sx={{fontStyle: 'italic', marginTop: 1}}>
         TODO: List of liked submissions here (delete this line)
       </Typography>
+      <FormSubmission />
     </Box>
   );
 }
