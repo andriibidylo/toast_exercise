@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { onMessage } from "../service/mockServer";
+import { Toast } from "./Toast";
 
 export const FormSubmission = () => {
   const [currentFormsSubmissions, setCurrentFormsSubmissions] = useState([]);
@@ -16,7 +17,11 @@ export const FormSubmission = () => {
     <>
       {currentFormsSubmissions?.length > 0 &&
         currentFormsSubmissions.map((form) => (
-            <div key={form.id}>`${form.data?.firstName} and ${form.data?.lastName}`</div>
+            <Toast
+            key={form.id}
+            message={`${form.data?.firstName} ${form.data?.lastName} ${form.data?.email}`}
+            open={true}
+          />
         ))}
     </>
   );
