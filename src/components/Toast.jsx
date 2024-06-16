@@ -4,25 +4,18 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, SnackbarContent } from "@mui/material";
 
-export const Toast = ({ message, open}) => {
+export const Toast = ({ message, open, onLike }) => {
   return (
     <Box sx={{ width: 500 }}>
       <Snackbar open={open}>
         <SnackbarContent
           action={
             <>
-                <Button
-                  color="inherit"
-                  size="small"
-                >
-                  Like
-                </Button>
-   
-              <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-              >
+              <Button color="inherit" size="small" onClick={() => onLike()}>
+                Like
+              </Button>
+
+              <IconButton size="small" aria-label="close" color="inherit">
                 <CloseIcon fontSize="small" />
               </IconButton>
             </>
