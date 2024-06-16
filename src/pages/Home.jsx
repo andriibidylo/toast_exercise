@@ -5,13 +5,12 @@ import { useSaveLikedSubmission } from "../query/useSaveLikedSubmission";
 import { LikedSubmissionList } from "../components/LikedSubmissionList";
 
 export const Home = () => {
-  const { mutate } = useSaveLikedSubmission();
+  const { mutate, isPending } = useSaveLikedSubmission();
 
   return (
     <Box sx={{ marginTop: 3 }}>
       <FormSubmission mutateLinkedSubmission={mutate} />
-      <LikedSubmissionList
-      />
+      <LikedSubmissionList loadingLikedSubmission={isPending} />
     </Box>
   );
 };
