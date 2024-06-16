@@ -1,5 +1,5 @@
 import { render, screen, cleanup } from "@testing-library/react";
-import { ListLikedSubmissions } from "../components/ListLikedSubmissions";
+import { LikedSubmissionList } from "../components/LikedSubmissionList";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
@@ -10,14 +10,14 @@ const wrapper = ({ children }) => (
 
 describe("ListLikedSubmissions Component", () => {
   test("renders the component with the title", () => {
-    render(<ListLikedSubmissions loadingLikedSubmission={false} />, {
+    render(<LikedSubmissionList loadingLikedSubmission={false} />, {
       wrapper,
     });
     expect(screen.getByText("Liked Form Submissions")).toBeInTheDocument();
   });
 
   test("displays the loading spinner when loading", () => {
-    render(<ListLikedSubmissions loadingLikedSubmission={true} />, {
+    render(<LikedSubmissionList loadingLikedSubmission={true} />, {
       wrapper,
     });
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
