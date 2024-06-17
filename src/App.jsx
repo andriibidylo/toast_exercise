@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import { Home } from "./pages/Home";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { setupQueryClient } from "./query/setupQueryClient";
-import { useShowError } from "./components/hooks/useShowError";
+import { useShowError } from "./hooks/useShowError";
 import { useMemo } from "react";
 
 const App = () => {

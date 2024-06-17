@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Toast } from '../Toast';
-
+import React, { useState } from "react";
+import { Toast } from "../components/Toast";
 
 export const useShowError = () => {
   const [toast, setToast] = useState(null);
@@ -16,7 +15,7 @@ export const useShowError = () => {
   const ErrorComponent = toast ? (
     <Toast
       isError={toast.isError}
-      message={toast.message}
+      message={`Ooooops: ${toast.message}. Please close this popup and try again.`}
       open={toast.open}
       onClose={hideToast}
     />
